@@ -9,12 +9,27 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    
+    @IBOutlet weak var newItem: UITextField!
+    
+    @IBAction func addItem(_ sender: Any) {
+        
+        var items: [String]
+        
+        let itemsObject = UserDefaults.standard.object(forKey: "items")
+        
+        if let tempItems = itemsObject as? [String] {
+            items = tempItems
+            items.append(newItem.text!)
+        } else {
+            items = [newItem.text!]
+        }
+        
+        UserDefaults.standard.set(items,forKey: "items")
+        newItem.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
