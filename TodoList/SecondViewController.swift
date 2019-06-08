@@ -20,7 +20,9 @@ class SecondViewController: UIViewController {
         
         if let tempItems = itemsObject as? [String] {
             items = tempItems
-            items.append(newItem.text!)
+            if !(newItem.text!.isEmpty) {
+                items.append(newItem.text!)
+            }
         } else {
             items = [newItem.text!]
         }
