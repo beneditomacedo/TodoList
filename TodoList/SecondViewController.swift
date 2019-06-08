@@ -29,6 +29,10 @@ class SecondViewController: UIViewController {
         
         UserDefaults.standard.set(items,forKey: "items")
         newItem.text = ""
+        
+        // disable keyboard after input finished
+        //
+        newItem.resignFirstResponder()
     }
     
     override func viewDidLoad() {
